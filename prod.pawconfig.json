@@ -1,0 +1,11 @@
+{
+  "appRootUrl": "/",
+  "asyncCSS": false,
+  "host": "0.0.0.0",
+  "port": "3003",
+  "polyfill": "cdn",
+  "react": "cdn",
+  "serverSideRender": true,
+  "serviceWorker": true,
+  "singlePageApplication": false
+}

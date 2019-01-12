@@ -1,0 +1,4 @@
+{
+  "name": "hn-header",
+  "main": "./header.tsx"
+}

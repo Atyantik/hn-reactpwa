@@ -1,0 +1,21 @@
+.nav {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 35px;
+  height: 40px;
+  left: 0;
+  padding: 10px 5px;
+  span a {
+    padding: 0px 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: darken(#17a2b8, 30);
+  }
+}
+.container {
+  position: relative;
+  padding-top: 40px;
+}

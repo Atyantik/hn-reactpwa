@@ -1,0 +1,4 @@
+{
+  "name": "hn-app-shell",
+  "main": "./index.tsx"
+}
