@@ -1,21 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../header';
 import styles from './shell.scss';
 
-interface IProps {
-    children: React.ReactChildren,
-    location: {
-        pathname: string
-    }
-};
-export default withRouter((props: IProps) => {
-    return (
-        <div>
-            <Header currentUrl={props.location.pathname} />
-            <div className={styles.container}>
-                {props.children}
-            </div>
-        </div>
-    );
+export default withRouter((props: any): JSX.Element => {
+  return (
+    <header>
+      <Header currentUrl={props.location.pathname} />
+      <main className={styles.container}>
+        {props.children}
+      </main>
+    </header>
+  );
 });

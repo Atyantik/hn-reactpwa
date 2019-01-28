@@ -9,16 +9,18 @@
   max-height: 35px;
   top:0;
   left: 0;
+  z-index: 1;
   ul {
     li {
       display: inline-block;
       position: relative;
       a {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 10px 10px;
         text-decoration: none;
         text-transform: uppercase;
         border-bottom: 1px solid transparent;
+        color: white;
         &:active,&:focus,&:visited {
           color: white;
         }
@@ -29,7 +31,7 @@
           width: 20px;
           bottom: 5px;
           left: 50%;
-          right: 0; 
+          right: 0;
           margin-left: -10px;
           position: absolute;
           border-bottom: 1px solid white;

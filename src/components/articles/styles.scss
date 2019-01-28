@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+  padding-top: 40px;
+  font-size: 18px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
 .nav {
   box-sizing: border-box;
   display: inline-block;
@@ -8,14 +15,58 @@
   height: 40px;
   left: 0;
   padding: 10px 5px;
-  span a {
-    padding: 0px 5px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: darken(#17a2b8, 30);
+  background: #ffffff;
+  border-bottom: 0.5px solid lighten(black, 80%);
+}
+.prev {
+  margin-right: 20px;
+}
+.next {
+  margin-left: 20px;
+}
+.link {
+  color: darken(#17a2b8, 30);
+  text-decoration: none;
+}
+.prev, .next {
+  padding: 0 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: darken(#17a2b8, 30);
+}
+a.prev, a.next {
+  cursor: pointer;
+}
+
+span.prev, span.next {
+  color: lighten(black, 40);
+}
+
+/**
+ * Single article styles
+ */
+.article-container {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.meta {
+  font-size: 14px;
+  margin-top: 5px;
+  color: lighten(black, 20%);
+  .link:hover {
+    text-decoration: underline;
   }
 }
-.container {
-  position: relative;
-  padding-top: 40px;
+
+/**
+ * Blink animation
+ */
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.2;
+  }
 }

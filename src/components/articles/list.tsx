@@ -1,40 +1,87 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { getStories } from '../../api';
 import ArticleListItem from './item';
 import ArticleStyles from './styles.scss';
-import { Link } from 'react-router-dom';
-import { getStories as fetchStories } from '../../api';
 
-const { useState, useEffect } = React;
+const { useEffect } = React;
 
-export default (props: React.ReactPropTypes) => {
+interface IArticleListProps extends React.ReactPropTypes {
+  loadedData: any;
+}
+
+export default (props: IArticleListProps) => {
   const { stories, allStoriesIds, currentPage, urlPrefix } = props.loadedData;
-  const [ stateStories, setStories ] = useState(stories);
+  const limit: number = 10;
   const hasPrevious = currentPage > 1;
-  const maxPages = parseInt(`${allStoriesIds.length/10}`, 10);
+  const maxPages = parseInt(`${allStoriesIds.length / limit}`, 10);
   const hasNext = currentPage < maxPages;
+
+  useEffect(() => {
+    if ('requestIdleCallback' in window) {
+      const idleCallbackId = window.requestIdleCallback(
+        () => getStories(allStoriesIds, (currentPage) * 10, 10),
+      );
+      return () => {
+        window.cancelIdleCallback(idleCallbackId);
+      };
+    }
+  }, [
+    currentPage,
+    hasNext,
+  ]);
+
+  const renderPrevious = () => {
+    if (hasPrevious) {
+      return (
+        <Link to={`${urlPrefix}page/${currentPage - 1}`} className={ArticleStyles.prev}>
+          &lt; prev
+        </Link>
+      );
+    }
+    return (
+      <span className={ArticleStyles.prev}>
+        &lt; prev
+      </span>
+    );
+  };
+
+  const renderNext = () => {
+    if (hasNext) {
+      return (
+        <Link to={`${urlPrefix}page/${currentPage + 1}`} className={ArticleStyles.next}>
+          next &gt;
+        </Link>
+      );
+    }
+    return (
+      <span className={ArticleStyles.next}>
+        next &gt;
+      </span>
+    );
+  };
+
+  const renderArticles = () => {
+    return stories.map((articleData: any, index: number) => (
+        <ArticleListItem
+          key={`article_id_${articleData.title}`}
+          index={(currentPage - 1) * limit + index + 1}
+          {...articleData}
+        />
+      ),
+    );
+  };
+
   return (
     <div className={ArticleStyles.container}>
       <nav className={ArticleStyles.nav}>
-        <span>
-          {hasPrevious &&  (
-            <Link to={`${urlPrefix}page/${currentPage - 1}`}>
-              &lt; prev
-            </Link>
-          )}
-        </span>
+        {renderPrevious()}
         <span>{currentPage}/{maxPages}</span>
-        <span>
-          {hasNext &&  (
-            <Link to={`${urlPrefix}page/${currentPage + 1}`}>
-              next &gt;
-            </Link>
-          )}
-          
-        </span>
+        {renderNext()}
       </nav>
       <ul>
-        {stories.map(articleData => <ArticleListItem key={`article_id_${articleData.title}`} {...articleData} />)}
+        {renderArticles()}
       </ul>
     </div>
-  )
+  );
 };

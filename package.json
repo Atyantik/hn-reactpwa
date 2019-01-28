@@ -1,7 +1,7 @@
 {
-  "name": "pawjs-barebone",
+  "name": "hn-reactpwa",
   "version": "1.0.0",
-  "description": "PawJS Barebone",
+  "description": "Hacker News progressive web application, PWA, built using ReactPWA & PawJS",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pawjs --no-cache --env=development start",
@@ -9,18 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atyantik/pawjs-barebone.git"
+    "url": "git+https://github.com/Atyantik/hn-reactpwa.git"
   },
   "keywords": [
-    "pawjs",
-    "react-pwa",
-    "barebone",
-    "hello-world"
+    "react",
+    "hacker",
+    "hacker news",
+    "news",
+    "pwa",
+    "hacker news pwa",
+    "hnpwa",
+    "hn pwa",
+    "hn"
   ],
   "author": {
-    "name": "Yash Thakur",
-    "email": "thakur.yash514@gmail.com",
-    "url": "http://yashthakur.in/"
+    "name": "Tirth Bodawala",
+    "email": "tirthbodawala@atyantik.com",
+    "url": "https://www.atyantik.com/"
   },
   "contributors": [
     {
@@ -31,16 +36,19 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atyantik/pawjs-barebone/issues"
+    "url": "https://github.com/Atyantik/hn-reactpwa/issues"
   },
-  "homepage": "https://github.com/atyantik/pawjs-barebone#readme",
+  "homepage": "https://github.com/Atyantik/hn-reactpwa#readme",
   "dependencies": {
-    "@loadable/component": "^5.2.2",
-    "@pawjs/pawjs": "^2.3.0-beta.9",
+    "@loadable/component": "^5.5.0",
+    "@pawjs/image-optimizer": "^2.2.0-beta.0",
+    "@pawjs/pawjs": "^2.3.0-beta.13",
     "@pawjs/sass": "^2.2.0-beta.0",
-    "cross-fetch": "^3.0.0"
+    "@types/react-router-dom": "^4.3.1",
+    "cross-fetch": "^3.0.0",
+    "dayjs": "^1.8.0"
   },
   "devDependencies": {
-    "eslint-import-resolver-webpack": "^0.10.1"
+    "eslint-import-resolver-webpack": "^0.11.0"
   }
 }

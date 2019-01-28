@@ -1,39 +1,42 @@
-import { request, requestTopstories, getStories } from '../api';
+import { getStories, requestTopStories } from '../api';
+import ArticleListSkeleton from '../components/articles/list-skeleton';
 
 export default [
   {
-    path: '/',
-    exact: true,
     component: import('../components/articles'),
-    loadData: async ({ updateSeo }) => {
-      const topStories = await requestTopstories();
+    exact: true,
+    loadData: async ({ updateSeo }: any) => {
+      const topStories = await requestTopStories();
       updateSeo({
-        title: 'Top stories - Page 1 - Hacker news - ReactPWA HN',
+        title: 'Top stories - Page 1 - Hacker news - HN ReactPWA',
       });
       return {
-        stories: await getStories(topStories, 0, 10),
         allStoriesIds: topStories,
         currentPage: 1,
+        stories: await getStories(topStories, 0, 10),
         urlPrefix: '/',
       };
     },
+    path: '/',
+    skeleton: ArticleListSkeleton,
   },
   {
-    path: '/page/:page',
-    exact: true,
     component: import('../components/articles'),
-    loadData: async ({ updateSeo, match }) => {
-      const page = parseInt(match.params.page);
-      const topStories = await requestTopstories();
+    exact: true,
+    loadData: async ({ updateSeo, match }: any) => {
+      const page = parseInt(match.params.page, 10);
+      const topStories = await requestTopStories();
       updateSeo({
-        title: `Top stories - Page ${page} - Hacker news - ReactPWA HN`
+        title: `Top stories - Page ${page} - Hacker news - HN ReactPWA`,
       });
       return {
-        stories: await getStories(topStories, (page - 1) * 10, 10),
         allStoriesIds: topStories,
         currentPage: page,
-        urlPrefix: '/'
-      }
-    }
+        stories: await getStories(topStories, (page - 1) * 10, 10),
+        urlPrefix: '/',
+      };
+    },
+    path: '/page/:page',
+    skeleton: ArticleListSkeleton,
   },
 ];

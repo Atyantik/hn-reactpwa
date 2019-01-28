@@ -1,12 +1,42 @@
-import React from 'react';
+import { getStories, requestShowHNStories } from '../api';
+import ArticleListSkeleton from '../components/articles/list-skeleton';
 
 export default [
   {
-    path: '/show',
+    component: import('../components/articles'),
     exact: true,
-    component: () => <div>Hello World.</div>,
-    loadData: async () => {
-      console.log("load me");
-    }
-  }
+    loadData: async ({ updateSeo }: any) => {
+      const topStories = await requestShowHNStories();
+      updateSeo({
+        title: 'ShowHN - Page 1 - Show hacker news - HN ReactPWA',
+      });
+      return {
+        allStoriesIds: topStories,
+        currentPage: 1,
+        stories: await getStories(topStories, 0, 10),
+        urlPrefix: '/show-hn-hacker-news/',
+      };
+    },
+    path: '/show-hn-hacker-news',
+    skeleton: ArticleListSkeleton,
+  },
+  {
+    component: import('../components/articles'),
+    exact: true,
+    loadData: async ({ updateSeo, match }: any) => {
+      const page = parseInt(match.params.page, 10);
+      const topStories = await requestShowHNStories();
+      updateSeo({
+        title: `ShowHN - Page ${page} - Show hacker news - HN ReactPWA`,
+      });
+      return {
+        allStoriesIds: topStories,
+        currentPage: page,
+        stories: await getStories(topStories, (page - 1) * 10, 10),
+        urlPrefix: '/show-hn-hacker-news/',
+      };
+    },
+    path: '/show-hn-hacker-news/page/:page',
+    skeleton: ArticleListSkeleton,
+  },
 ];
