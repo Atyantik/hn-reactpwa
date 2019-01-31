@@ -2,14 +2,28 @@ import * as React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../header';
 import styles from './shell.scss';
+import ArticleStyles from '../articles/styles.scss';
 
 export default withRouter((props: any): JSX.Element => {
   return (
-    <header>
-      <Header currentUrl={props.location.pathname} />
+    <div>
+      <header>
+        <Header currentUrl={props.location.pathname} />
+      </header>
       <main className={styles.container}>
         {props.children}
       </main>
-    </header>
+      <footer className={ArticleStyles.container}>
+        Created with &hearts; with&nbsp;
+        <a
+          href="https://www.reactpwa.com"
+          rel="noreferrer noopener nofollow"
+          target="_blank"
+        >
+          ReactPWA
+        </a>
+        &nbsp;
+      </footer>
+    </div>
   );
 });
