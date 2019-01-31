@@ -45,6 +45,7 @@
     "@pawjs/pawjs": "^2.3.0-beta.13",
     "@pawjs/sass": "^2.2.0-beta.0",
     "@types/react-router-dom": "^4.3.1",
+    "cloudinary": "^1.13.2",
     "cross-fetch": "^3.0.0",
     "dayjs": "^1.8.0",
     "memory-cache": "^0.2.0"

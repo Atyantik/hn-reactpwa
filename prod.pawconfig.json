@@ -3,6 +3,7 @@
   "asyncCSS": false,
   "host": "0.0.0.0",
   "port": "3003",
+  "cdnUrl": "https://res.cloudinary.com/atyantik/raw/upload/hn-react/",
   "polyfill": "cdn",
   "react": "cdn",
   "serverSideRender": true,
