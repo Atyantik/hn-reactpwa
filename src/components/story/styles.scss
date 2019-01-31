@@ -1,0 +1,32 @@
+.title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+.center {
+  text-align: center;
+  color: lighten(black, 30%);
+  margin: 20px auto;
+}
+.small {
+  font-size: 0.8em;
+}
+.karma {
+  color: darken(crimson, 20%);
+}
+.since {
+  color: lighten(black, 30%);
+}
+.comment-list {
+  margin-top: 20px;
+  background-color: darken(white, 2%);
+}
+
+.link {
+  color: darken(#17a2b8, 30);
+  text-decoration: none;
+  &:active, &:visited, &:after {
+    color: darken(#17a2b8, 30);
+  }
+}

@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  span {
+    display: inline-block;
+    width: 100%;
+    min-height: 24px;
+    background-color: darken(white, 10%);
+    animation: blinker 1s linear infinite;
+    opacity: 0.8;
+    vertical-align: top;
+    margin-bottom: 2px;
+    &.index {
+      width: 6%;
+      margin-right: 0.25%;
+    }
+    &.title {
+      width: 83%;
+    }
+    &.by {
+      width: 15%;
+      margin-right: 0.25%;
+    }
+    &.link {
+      width: 14.49%;
+      margin-right: 0.25%;
+    }
+    &.date {
+      width: 15%;
+      margin-right: 0.25%;
+    }
+  }
+}
+
+/**
+ * Blink animation
+ */
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.6;
+  }
+}

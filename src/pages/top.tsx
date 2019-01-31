@@ -22,6 +22,7 @@ export default [
   },
   {
     component: import('../components/articles'),
+    // component: ArticleListSkeleton,
     exact: true,
     loadData: async ({ updateSeo, match }: any) => {
       const page = parseInt(match.params.page, 10);

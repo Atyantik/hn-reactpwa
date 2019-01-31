@@ -27,6 +27,9 @@
 .link {
   color: darken(#17a2b8, 30);
   text-decoration: none;
+  &:active, &:visited, &:after {
+    color: darken(#17a2b8, 30);
+  }
 }
 .prev, .next {
   padding: 0 5px;

@@ -62,14 +62,16 @@ export default (props: IArticleListProps) => {
   };
 
   const renderArticles = () => {
-    return stories.map((articleData: any, index: number) => (
+    return stories.map((articleData: any, index: number) => {
+      if (!articleData || !articleData.id) return null;
+      return (
         <ArticleListItem
-          key={`article_id_${articleData.title}`}
+          key={`article_id_${articleData.id}`}
           index={(currentPage - 1) * limit + index + 1}
           {...articleData}
         />
-      ),
-    );
+      );
+    });
   };
 
   return (

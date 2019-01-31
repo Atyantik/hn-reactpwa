@@ -4,6 +4,8 @@ import jobs from './pages/jobs';
 import newarticles from './pages/new';
 import show from './pages/show';
 import top from './pages/top';
+import user from './pages/user';
+import story from './pages/story';
 
 // PWA icon set
 import Icon1024 from './resources/pwa-icons/reactpwa-hn-1024x1024.png';
@@ -26,6 +28,8 @@ const appRoutes = [
   ...show,
   ...ask,
   ...jobs,
+  ...user,
+  ...story,
 ];
 
 export default class Routes {

@@ -7,7 +7,7 @@ import ArticleStyles from './styles.scss';
 dayjs.extend(relativeTime);
 
 export default (props: any) => {
-  const { index, id, title, url, score, by, descendants, time } = props;
+  const { index, id, title, url, score, by, descendants, time, deleted } = props;
 
   const renderArticleTitle = () => {
     if (typeof url !== 'undefined') {
@@ -23,17 +23,33 @@ export default (props: any) => {
       );
     }
     return (
-      <Link to={`/item/${id}`} className={ArticleStyles.link}>
+      <Link to={`/story/${id}`} className={ArticleStyles.link}>
         {title}
       </Link>
     );
   };
 
+  const renderIndex = () => {
+    if (index) {
+      return <span>{index}.&nbsp;</span>;
+    }
+    return null;
+  };
+
+  const renderCommentLink = () => {
+    const count = descendants ? descendants : 0;
+    return (
+      <Link to={`/story/${id}`} className={ArticleStyles.link}>{count} comments</Link>
+    );
+  };
+
+  if (!id || deleted) return null;
+
   return (
     <li className={ArticleStyles['article-container']}>
       <section>
         <div>
-          {index}.&nbsp;
+          {renderIndex()}
           {renderArticleTitle()}
         </div>
         <div className={ArticleStyles.meta}>
@@ -41,7 +57,7 @@ export default (props: any) => {
           &nbsp;
           <Link to={`/user/${by}`} className={ArticleStyles.link}>{by}</Link>
           , {dayjs().to(dayjs(time * 1000))} |&nbsp;
-          <Link to={`/item/${id}`} className={ArticleStyles.link}>{descendants} comments</Link>
+          {renderCommentLink()}
         </div>
       </section>
     </li>

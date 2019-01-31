@@ -1,4 +1,4 @@
-import { getStories, requestAskHNStories } from '../api';
+import { getStories, requestJobStories } from '../api';
 import ArticleListSkeleton from '../components/articles/list-skeleton';
 
 export default [
@@ -6,7 +6,7 @@ export default [
     component: import('../components/articles'),
     exact: true,
     loadData: async ({ updateSeo }: any) => {
-      const topStories = await requestAskHNStories();
+      const topStories = await requestJobStories();
       updateSeo({
         title: 'Jobs - Page 1 - Hacker news jobs - HN ReactPWA',
       });
@@ -25,7 +25,7 @@ export default [
     exact: true,
     loadData: async ({ updateSeo, match }: any) => {
       const page = parseInt(match.params.page, 10);
-      const topStories = await requestAskHNStories();
+      const topStories = await requestJobStories();
       updateSeo({
         title: `Jobs - Page ${page} - Hacker news jobs - HN ReactPWA`,
       });

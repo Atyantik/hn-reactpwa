@@ -1,0 +1,4 @@
+{
+  "name": "hn-comment",
+  "main": "./comment.tsx"
+}
