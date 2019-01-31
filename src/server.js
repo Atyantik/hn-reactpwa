@@ -21,6 +21,9 @@ export default class ProjectServer {
       // Add dns precache for hn firebase api
       head.push(<link key="dns-precache-hn-firebase-api" rel="preconnect" href="https://hacker-news.firebaseio.com" />);
 
+      // Add dns precache for CDN
+      head.push(<link key="dns-precache-cloudinary-cdn" rel="preconnect" href="https://res.cloudinary.com" />);
+
       // Add meta theme color explicitly
       head.push(<meta key="meta-theme-color" name="theme-color" content="#0c525d" />);
 
