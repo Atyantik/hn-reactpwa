@@ -12,15 +12,18 @@ interface IArticleListProps extends React.ReactPropTypes {
 
 export default (props: IArticleListProps) => {
   const { stories, allStoriesIds, currentPage, urlPrefix } = props.loadedData;
-  const limit: number = 10;
+  const limit: number = 30;
   const hasPrevious = currentPage > 1;
-  const maxPages = parseInt(`${allStoriesIds.length / limit}`, 10);
+  let maxPages = parseInt(`${allStoriesIds.length / limit}`, 10);
+  if (!maxPages) {
+    maxPages = 1;
+  }
   const hasNext = currentPage < maxPages;
 
   useEffect(() => {
     if ('requestIdleCallback' in window) {
       const idleCallbackId = window.requestIdleCallback(
-        () => getStories(allStoriesIds, (currentPage) * 10, 10),
+        () => getStories(allStoriesIds, (currentPage) * limit, limit),
       );
       return () => {
         window.cancelIdleCallback(idleCallbackId);

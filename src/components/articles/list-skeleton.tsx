@@ -6,7 +6,7 @@ import ArticleStyles from './styles.scss';
 export default withRouter((props: any) => {
   const { match: { params: { page } } } = props;
 
-  const renderArticlesSkeleton = (times: number = 10) => {
+  const renderArticlesSkeleton = (times: number = 30) => {
     const articles = [];
     for (let i = 0; i < times; i += 1) {
       articles.push(<ArticleListItemSkeleton key={`skeleton_${i}`}/>);

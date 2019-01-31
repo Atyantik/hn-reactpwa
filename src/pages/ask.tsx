@@ -13,7 +13,7 @@ export default [
       return {
         allStoriesIds: topStories,
         currentPage: 1,
-        stories: await getStories(topStories, 0, 10),
+        stories: await getStories(topStories, 0, 30),
         urlPrefix: '/ask-hn-hacker-news/',
       };
     },
@@ -32,7 +32,7 @@ export default [
       return {
         allStoriesIds: topStories,
         currentPage: page,
-        stories: await getStories(topStories, (page - 1) * 10, 10),
+        stories: await getStories(topStories, (page - 1) * 30, 30),
         urlPrefix: '/ask-hn-hacker-news/',
       };
     },
