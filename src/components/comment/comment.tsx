@@ -10,12 +10,19 @@ const { useState, useEffect } = React;
 
 const COMMENT = (props: any) => {
   const { id } = props;
-  const [comment, setComment] = useState({});
+  const commentInit = {
+    by: '',
+    deleted: false,
+    kids: [],
+    text: '',
+    time: 0,
+  };
+  const [comment, setComment] = useState({ ...commentInit });
   const [commentLoaded, setCommentLoaded] = useState(false);
   let mounted = true;
 
   useEffect(() => {
-    setComment({});
+    setComment({ ...commentInit });
     setCommentLoaded(false);
     (async () => {
       const comments = await getStories([id], 0, 1);
@@ -27,8 +34,9 @@ const COMMENT = (props: any) => {
     return () => {
       mounted = false;
     };
-
-  }, [id]);
+  }, [ // tslint:disable
+    id,
+  ]);
 
   const renderChildComments = () => {
     if (comment && comment.kids && comment.kids.length) {

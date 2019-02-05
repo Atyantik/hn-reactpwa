@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { withRouter } from 'react-router';
+import ArticleStyles from '../articles/styles.scss';
 import Header from '../header';
 import styles from './shell.scss';
-import ArticleStyles from '../articles/styles.scss';
 
 export default withRouter((props: any): JSX.Element => {
   return (

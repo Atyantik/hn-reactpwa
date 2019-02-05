@@ -1,4 +1,4 @@
-import { getStories, getUserDetails, requestAskHNStories } from '../api';
+import { getUserDetails } from '../api';
 import ProfileSkeleton from '../components/user/profile-skeleton';
 
 export default [
