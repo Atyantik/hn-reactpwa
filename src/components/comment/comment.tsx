@@ -55,7 +55,7 @@ const COMMENT = (props: any) => {
       </div>
     );
   }
-  if (comment.deleted) return null;
+  if (!comment || comment.deleted) return null;
 
   return (
     <div className={CommentStyles.comment}>
