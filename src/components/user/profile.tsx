@@ -48,7 +48,6 @@ export default (props: any) => {
     if (!stories.filter(s => s && s.type && s.type === 'story').length) {
       return <i style={{ textAlign: 'center', display: 'block' }}>User has not published any stories recently <br /><br />¯\_(๑❛ᴗ❛๑)_/¯</i>;
     }
-    console.log(stories);
 
     return stories.map((articleData: any, index: number) => {
       if (!articleData || !articleData.id || articleData.type !== 'story') return null;
