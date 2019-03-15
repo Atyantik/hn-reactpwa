@@ -14,15 +14,17 @@ export default withRouter((props: any): JSX.Element => {
         {props.children}
       </main>
       <footer className={ArticleStyles.container}>
-        Created with &hearts; with&nbsp;
-        <a
-          href="https://www.reactpwa.com"
-          rel="noreferrer noopener nofollow"
-          target="_blank"
-        >
-          ReactPWA
-        </a>
-        &nbsp;
+        <div className={ArticleStyles.credit}>
+          Created with &hearts; with&nbsp;
+          <a
+            href="https://www.reactpwa.com"
+            rel="noreferrer noopener nofollow"
+            target="_blank"
+          >
+            ReactPWA
+          </a>
+          &nbsp;
+        </div>
       </footer>
     </div>
   );

@@ -26,6 +26,8 @@
 .link {
   color: darken(#17a2b8, 30);
   text-decoration: none;
+  max-width: 100%;
+  word-break: break-all;
   &:active, &:visited, &:after {
     color: darken(#17a2b8, 30);
   }

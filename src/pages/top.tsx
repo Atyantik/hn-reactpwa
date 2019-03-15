@@ -3,7 +3,7 @@ import ArticleListSkeleton from '../components/articles/list-skeleton';
 
 export default [
   {
-    component: import('../components/articles'),
+    component: () => import('../components/articles'),
     exact: true,
     loadData: async ({ updateSeo }: any) => {
       const topStories = await requestTopStories();
@@ -21,7 +21,7 @@ export default [
     skeleton: ArticleListSkeleton,
   },
   {
-    component: import('../components/articles'),
+    component: () => import('../components/articles'),
     // component: ArticleListSkeleton,
     exact: true,
     loadData: async ({ updateSeo, match }: any) => {

@@ -3,7 +3,7 @@ import ItemSkeleton from '../components/story/item-skeleton';
 
 export default [
   {
-    component: import('../components/story/item'),
+    component: () => import('../components/story/item'),
     exact: true,
     loadData: async ({ match, updateSeo }: any) => {
       const { params: { itemId } } = match;

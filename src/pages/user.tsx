@@ -3,7 +3,7 @@ import ProfileSkeleton from '../components/user/profile-skeleton';
 
 export default [
   {
-    component: import('../components/user/profile'),
+    component: () => import('../components/user/profile'),
     exact: true,
     loadData: async ({ match, updateSeo }: any) => {
       const { params: { userId } } = match;
