@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withRouter } from 'react-router';
-import ArticleStyles from '../articles/styles.scss';
-import Header from '../header';
+import ArticleStyles from '@components/articles/styles.scss';
+import Header from '@components/header';
 import styles from './shell.scss';
 
 export default withRouter((props: any): JSX.Element => {
