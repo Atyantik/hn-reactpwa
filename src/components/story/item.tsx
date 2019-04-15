@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Comment from '../comment/comment';
+import Comment from '@components/comment/comment';
 import StoryStyles from './styles.scss';
 
 dayjs.extend(relativeTime);

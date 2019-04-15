@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import * as React from 'react';
 import { getStories } from '../../api';
-import ArticleListItem from '../articles/item';
-import ArticleListItemSkeleton from '../articles/item-skeleton';
+import ArticleListItem from '@components/articles/item';
+import ArticleListItemSkeleton from '@components/articles/item-skeleton';
 
 import UserStyles from './styles.scss';
 
@@ -20,7 +20,7 @@ export default (props: any) => {
     setStories([]);
     setStoriesLoaded(false);
     (async () => {
-      const userStories = await getStories(submitted, 0, 50);
+      const userStories: any = await getStories(submitted, 0, 50);
       if (mounted) {
         setStories(userStories);
         setStoriesLoaded(true);
